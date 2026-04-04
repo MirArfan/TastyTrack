@@ -4,5 +4,5 @@ import SignUp from './components/SignUp.vue';
 </script>
 
 <template>
-  <SignUp/>
+  <router-view/>
 </template>

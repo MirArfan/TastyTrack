@@ -11,6 +11,18 @@
       "email": "fahim@gmail.com",
       "password": "12345678",
       "id": "5bUlFaLoePY"
+    },
+    {
+      "name": "md arfi",
+      "email": "arif@gmail.com",
+      "password": "12345678",
+      "id": "BIJ6aYJZq9w"
+    },
+    {
+      "name": "jamal hasna ",
+      "email": "jamal@gmail.com",
+      "password": "12345678",
+      "id": "8s7U5n6HQCs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

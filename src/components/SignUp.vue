@@ -45,6 +45,9 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const name = ref('')
 const email = ref('')
@@ -69,7 +72,8 @@ const register = async () => {
     users.push(response.data)
     localStorage.setItem('users', JSON.stringify(users))
 
-    alert('Registration Successful! 🎉')
+    // alert('Registration Successful! 🎉')
+    router.push('/')
 
     // Reset form
     name.value = ''
