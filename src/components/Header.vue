@@ -6,8 +6,8 @@
 
     <nav class="nav-links">
       <router-link to="/">Home</router-link>
-      <router-link to="/#">Add</router-link>
-      <router-link to="/#">Update</router-link>
+      <router-link to="/add">Add</router-link>
+      <router-link to="/update">Update</router-link>
     </nav>
 
     <button class="logout-btn" @click="logout">
