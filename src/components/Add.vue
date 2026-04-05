@@ -14,11 +14,17 @@
           <input v-model="price" type="number" placeholder="e.g. 120" required />
         </div>
 
-        <div class="input-group">
+         <div class="input-group">
           <label>Category</label>
-          <input v-model="category" type="text" placeholder="e.g. Fast Food" required />
+          <select v-model="category" required>
+            <option value="" disabled>Select Category</option>
+            <option value="Fast Food">Fast Food</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Beverages">Beverages</option>
+          </select>
         </div>
 
+        
         <button type="submit">Add Item</button>
       </form>
     </div>
@@ -113,7 +119,7 @@ h2 {
 button {
   width: 100%;
   padding: 12px;
-  background: #1a1a1a;
+  background: #ff7f50;
   color: white;
   border: none;
   border-radius: 10px;
@@ -122,6 +128,26 @@ button {
 }
 
 button:hover {
-  background: #333;
+  background: #e86a3c;
+}
+.input-group select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  background: white;
+  color: #444;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.input-group select:focus {
+  border-color: #007bff;
+}
+
+.input-group select option {
+  padding: 10px;
+  background: white;
+  color: #444;
 }
 </style>
