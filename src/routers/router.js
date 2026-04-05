@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // Import pages
 import Home from '../views/Home.vue'
 import SignUp from '../components/SignUp.vue'
+import Login from '../components/Login.vue'
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     path: '/signup',
     name: 'SignUp',
     component: SignUp
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   }
 ]
 
@@ -32,6 +38,9 @@ router.beforeEach((to, from, next) => {
 
   //  Already logged in → block Signup
   if (to.path === '/signup' && user) {
+    return next('/')
+  }
+  if (user && (to.path === '/login')) {
     return next('/')
   }
 
