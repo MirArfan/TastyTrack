@@ -10,14 +10,21 @@
       <router-link to="/#">Update</router-link>
     </nav>
 
-    <button class="logout-btn" >
+    <button class="logout-btn" @click="logout">
       Logout
     </button>
   </header>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+
+const logout = () => {
+  localStorage.removeItem('users')
+  router.push('/login')
+}
 </script>
 
 <style scoped>
