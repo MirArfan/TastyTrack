@@ -33,12 +33,6 @@
   ],
   "products": [
     {
-      "name": "egg mumlet",
-      "price": 30,
-      "category": "Good food",
-      "id": "PNQtJ4bLjiE"
-    },
-    {
       "name": "burger eee",
       "price": 99,
       "category": "Fast food 33",
