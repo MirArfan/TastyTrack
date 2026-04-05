@@ -31,5 +31,19 @@
       "id": "J09HwVgN74k"
     }
   ],
+  "products": [
+    {
+      "name": "egg",
+      "price": 12,
+      "category": "Good",
+      "id": "PNQtJ4bLjiE"
+    },
+    {
+      "name": "burger",
+      "price": 120,
+      "category": "Fast food",
+      "id": "oK1nX41S0kk"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
