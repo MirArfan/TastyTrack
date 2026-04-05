@@ -19,6 +19,9 @@
         <button @click="goToEdit(item.id)" class="edit-btn">
           ✏️ Update
         </button>
+        <button @click="deleteItem(item.id)" class="delete-btn">
+          🗑️ Delete
+        </button>
       </div>
     </div>
   </div>
@@ -49,6 +52,23 @@ const fetchProducts = async () => {
   }
 }
 
+const deleteItem = async (id) => {
+  const confirmDelete = confirm('Are you sure you want to delete this item?')
+
+  if (!confirmDelete) return
+
+  try {
+    await axios.delete(`${BASE_URL}/${id}`)
+
+    // 🔥 UI instantly update
+    products.value = products.value.filter(item => item.id !== id)
+
+    alert('Deleted successfully 🗑️')
+  } catch (err) {
+    console.error(err)
+    alert('Delete failed')
+  }
+}
 onMounted(() => {
   fetchProducts()
 })
@@ -118,6 +138,7 @@ h1 {
   color: #888;
   margin-top: 30px;
 }
+
 .edit-btn {
   margin-top: 10px;
   padding: 8px;
@@ -131,5 +152,19 @@ h1 {
 
 .edit-btn:hover {
   background: #218838;
+}
+.delete-btn {
+  margin-top: 8px;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #dc3545;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #c82333;
 }
 </style>
