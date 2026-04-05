@@ -16,6 +16,9 @@
         <h3>{{ item.name }}</h3>
         <p class="price">৳ {{ item.price }}</p>
         <p style="color:#666;">{{ item.category }}</p>
+        <button @click="goToEdit(item.id)" class="edit-btn">
+          ✏️ Update
+        </button>
       </div>
     </div>
   </div>
@@ -24,9 +27,17 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 
 const name = ref('')
 const products = ref([])
+
+const goToEdit = (id) => {
+  router.push(`/update/${id}`)
+}
 
 const BASE_URL = 'http://localhost:3000/products'
 const fetchProducts = async () => {
@@ -83,7 +94,7 @@ h1 {
   background: #ffffff;
   padding: 20px;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
 }
 
@@ -106,5 +117,19 @@ h1 {
   text-align: center;
   color: #888;
   margin-top: 30px;
+}
+.edit-btn {
+  margin-top: 10px;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #218838;
 }
 </style>
