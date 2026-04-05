@@ -9,16 +9,11 @@
       </div>
 
       <div class="header-text">
-        <h2>Create Account</h2>
-        <p>Join our community today</p>
+        <h2>Welcome Back</h2>
+        <p>Login to your account</p>
       </div>
 
-      <form @submit.prevent="register" class="signup-form">
-        <div class="input-wrapper">
-          <label>Full Name</label>
-          <input type="text" v-model="name" placeholder="John Doe" required />
-        </div>
-
+      <form @submit.prevent="login" class="signup-form">
         <div class="input-wrapper">
           <label>Email Address</label>
           <input type="email" v-model="email" placeholder="hello@example.com" required />
@@ -30,14 +25,14 @@
         </div>
 
         <button type="submit" class="submit-btn">
-          Sign Up
+          Login
           <span class="arrow">→</span>
         </button>
       </form>
 
       <p class="footer-link">
-        Already have an account? 
-        <router-link to="/login">Log in</router-link>
+        Don't have an account? 
+        <router-link to="/signup">Sign up</router-link>
       </p>
     </div>
   </div>
@@ -50,46 +45,41 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const name = ref('')
 const email = ref('')
 const password = ref('')
 
-// JSON Server URL
 const BASE_URL = 'http://localhost:3000/users'
 
-const register = async () => {
-  const user = {
-    name: name.value,
-    email: email.value,
-    password: password.value
-  }
-
+const login = async () => {
   try {
-    // 1️⃣ Save to JSON Server
-    const response = await axios.post(BASE_URL, user)
+    // সব users fetch করো
+    const res = await axios.get(BASE_URL)
 
-    // 2️⃣ Save to LocalStorage
-    let users = JSON.parse(localStorage.getItem('users')) || []
-    users.push(response.data)
-    localStorage.setItem('users', JSON.stringify(users))
+    // match check
+    const user = res.data.find(
+      u => u.email === email.value && u.password === password.value
+    )
 
-    // alert('Registration Successful! 🎉')
-    router.push('/')
+    if (user) {
+      // save current user
+      localStorage.setItem('users', JSON.stringify(user))
 
-    // Reset form
-    name.value = ''
-    email.value = ''
-    password.value = ''
+      alert('Login successful! 🎉')
+
+      // redirect home
+      router.push('/')
+    } else {
+      alert('Invalid email or password ❌')
+    }
+
   } catch (err) {
     console.error(err)
-    alert('Registration failed. Please try again.')
+    alert('Login failed')
   }
 }
 </script>
 
 <style scoped>
-/* Google Font Import */
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap'); */
 
 .page-wrapper {
   min-height: 100vh;
