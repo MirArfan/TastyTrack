@@ -37,6 +37,48 @@
       "price": 99,
       "category": "Fast food 33",
       "id": "oK1nX41S0kk"
+    },
+    {
+      "name": "Pizza",
+      "price": 350,
+      "category": "Fast Food",
+      "id": "MB0aiXuSdZo"
+    },
+    {
+      "name": "Chocolate Cake",
+      "price": 330,
+      "category": "Dessert",
+      "id": "XsHAZqTfaZs"
+    },
+    {
+      "name": "Ice Cream",
+      "price": 120,
+      "category": "Dessert",
+      "id": "KIrPu4DCFXc"
+    },
+    {
+      "name": "Coffee",
+      "price": 100,
+      "category": "Beverages",
+      "id": "DLhWT-onWHk"
+    },
+    {
+      "name": "Lemonade",
+      "price": 80,
+      "category": "Beverages",
+      "id": "HXp_E0Viwwg"
+    },
+    {
+      "name": "Sandwich",
+      "price": 200,
+      "category": "Fast Food",
+      "id": "xUL41RFTvLU"
+    },
+    {
+      "name": "Donut",
+      "price": 70,
+      "category": "Dessert",
+      "id": "xGnGgBCMo_g"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

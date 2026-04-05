@@ -124,7 +124,7 @@ h2 {
 button {
   width: 100%;
   padding: 12px;
-  background: #1a1a1a;
+  background: #ff7f50;
   color: white;
   border: none;
   border-radius: 10px;
@@ -133,6 +133,6 @@ button {
 }
 
 button:hover {
-  background: #333;
+  background: #eb6e40;
 }
 </style>
